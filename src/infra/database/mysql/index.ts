@@ -5,7 +5,7 @@ import { addTransactionalDataSource } from 'typeorm-transactional';
 import { DataSource } from 'typeorm';
 import { SecretsModule } from '@/infra/secrets';
 import { MySQLService } from '@/infra/database/mysql/service';
-// import { entities } from '@/models/entities';
+import { entities } from '@/models/entities';
 
 @Module({
   imports: [
@@ -19,7 +19,7 @@ import { MySQLService } from '@/infra/database/mysql/service';
           autoLoadEntities: true,
           synchronize: true,
           migrationsTableName: 'migration_collection',
-          entities: [],
+          entities,
         };
       },
       async dataSourceFactory(options) {
