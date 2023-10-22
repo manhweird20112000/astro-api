@@ -1,11 +1,13 @@
 export class ResponseData<T> {
   private data: T;
-  private status_code: number;
+  private statusCode: number;
   private message: string;
+  private errors: any;
 
-  constructor(data: T, status_code: number, message = '') {
+  constructor(data: T, statusCode: number, message = '', errors?: any) {
     this.data = data;
-    this.status_code = status_code;
+    this.statusCode = statusCode;
     this.message = message;
+    this.errors = errors;
   }
 }
