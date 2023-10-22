@@ -1,13 +1,10 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
-import { I18n, I18nContext } from 'nestjs-i18n';
+import { Controller, Get, HttpStatus } from '@nestjs/common';
+import { ResponseData } from '@/utils/response-data';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
   @Get()
-  getHello(@I18n() i18n: I18nContext): string {
-    return i18n.t('common.message');
+  getHello(): ResponseData<any> {
+    return new ResponseData(null, HttpStatus.OK, 'Hello World.');
   }
 }
