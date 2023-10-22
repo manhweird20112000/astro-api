@@ -1,3 +1,8 @@
 {
-  "message": "Hello."
+  "message": "Hello.",
+  "auth": {
+    "success": "Sign in successfully.",
+    "failed": "Sign in failed."
+  },
+  "not-found": "Data was not found."
 }

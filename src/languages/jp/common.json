@@ -1,3 +1,8 @@
 {
-  "message": "こんにちは。"
+  "message": "こんにちは。",
+  "auth":{
+    "success": "サインインに成功しました。",
+    "failed": "サインインに失敗しました。"
+  },
+  "not-found": "Data was not found."
 }
