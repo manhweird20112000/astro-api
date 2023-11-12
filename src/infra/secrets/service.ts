@@ -13,6 +13,7 @@ export class SecretsService extends ConfigService implements IAdapterSecret {
 
   JWT_SECRET = this.get('JWT_SECRET');
   TOKEN_EXPIRATION = this.get('TOKEN_EXPIRATION');
-  REDIS_URL = this.get('REDIS_URL');
   LOG_LEVEL = this.get('LOG_LEVEL');
+  REDIS_HOST = this.get('REDIS_HOST');
+  REDIS_PORT = this.get('REDIS_PORT');
 }

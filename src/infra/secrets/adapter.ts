@@ -8,7 +8,9 @@ export abstract class IAdapterSecret {
 
   TOKEN_EXPIRATION: string;
 
-  REDIS_URL: string;
+  REDIS_PORT: string;
+
+  REDIS_HOST: string;
 
   LOG_LEVEL: string;
 }

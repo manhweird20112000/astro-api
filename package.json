@@ -27,6 +27,7 @@
     "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed -n src/infra/database/mysql/config"
   },
   "dependencies": {
+    "@nestjs/bull": "^10.0.1",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^3.1.1",
     "@nestjs/core": "^9.0.0",
@@ -39,6 +40,7 @@
     "@ngneat/falso": "^7.1.1",
     "@types/passport-jwt": "^3.0.11",
     "bcrypt": "^5.1.1",
+    "bull": "^4.11.5",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "faker": "^6.6.6",
