@@ -9,7 +9,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Status } from '@/constants';
-import { User } from '@/models/entities/user';
+import { User } from './user';
 
 @Entity('role')
 export class Role extends BaseEntity {

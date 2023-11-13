@@ -18,3 +18,9 @@ export enum PermissionAction {
   update,
   delete,
 }
+
+export enum Gender {
+  female,
+  male,
+  other,
+}
