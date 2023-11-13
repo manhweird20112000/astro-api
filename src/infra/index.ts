@@ -4,12 +4,14 @@ import { SecretsModule } from '@/infra/secrets';
 import { MysqlModule } from '@/infra/database/mysql';
 import { LoggerWinstonModule } from '@/infra/logger';
 import { QueueModule } from '@/infra/queue';
+import { RedisCacheModule } from '@/infra/cache/redis';
 
 @Module({
   imports: [
     SecretsModule,
     LoggerWinstonModule,
     TranslateModule,
+    RedisCacheModule,
     MysqlModule,
     QueueModule,
   ],

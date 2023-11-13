@@ -4,9 +4,11 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Role } from '@/models/entities/role';
 
 @Entity('user')
 export class User extends BaseEntity {
@@ -21,6 +23,9 @@ export class User extends BaseEntity {
 
   @Column({ type: 'varchar', length: 255 })
   password: string;
+
+  @ManyToOne(() => Role, (role) => role.id)
+  role: Role;
 
   @CreateDateColumn()
   created_at: Date;
