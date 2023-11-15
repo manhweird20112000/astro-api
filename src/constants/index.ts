@@ -1,3 +1,7 @@
+export enum ValidateType {
+  create,
+  update,
+}
 export enum Status {
   inactive,
   active,
@@ -23,4 +27,9 @@ export enum Gender {
   female,
   male,
   other,
+}
+
+export enum ESort {
+  asc = 'asc',
+  desc = 'desc',
 }

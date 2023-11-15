@@ -2,21 +2,26 @@ import {
   IsEmail,
   IsEnum,
   IsNotEmpty,
+  IsNumber,
   IsOptional,
   IsString,
   MaxLength,
   MinLength,
   Validate,
 } from 'class-validator';
-import { Gender, ValidateType } from '@/constants';
 import { IsUniquePipe } from '@/modules/admin/user/pipes/is-unique.pipe';
+import { Gender, ValidateType } from '@/constants';
 
-export class SaveDto {
+export class UpdateDto {
+  @IsNotEmpty()
+  @IsNumber()
+  id: number;
+
   @IsNotEmpty()
   @IsString()
   @IsEmail()
   @MaxLength(255)
-  @Validate(IsUniquePipe, [ValidateType.create])
+  @Validate(IsUniquePipe, [ValidateType.update])
   email: string;
 
   @IsNotEmpty()
@@ -31,7 +36,7 @@ export class SaveDto {
   @IsOptional()
   @IsString()
   @MaxLength(255)
-  @Validate(IsUniquePipe, [ValidateType.create])
+  @Validate(IsUniquePipe, [ValidateType.update])
   username: string;
 
   @IsNotEmpty()
@@ -41,6 +46,6 @@ export class SaveDto {
 
   @IsOptional()
   @MaxLength(30)
-  @Validate(IsUniquePipe)
+  @Validate(IsUniquePipe, [ValidateType.update])
   phone: string;
 }
