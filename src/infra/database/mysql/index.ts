@@ -27,7 +27,8 @@ import { entities } from '@/models';
         };
       },
       async dataSourceFactory(options) {
-        return addTransactionalDataSource(new DataSource(options));
+        const datasource = new DataSource(options);
+        return addTransactionalDataSource(datasource);
       },
       imports: [SecretsModule],
       inject: [IAdapterSecret],

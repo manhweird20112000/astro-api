@@ -29,7 +29,6 @@ export class AuthController {
     @Req() req: Request,
     @I18n() i18n: I18nContext,
   ) {
-    this.logger.error('skjvnfkgbjkg');
     const data = await this.service.login(payload);
 
     return res

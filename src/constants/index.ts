@@ -7,9 +7,9 @@ export enum Status {
 }
 
 export enum Roles {
-  SuperAdmin,
-  Admin,
-  Normal,
+  SuperAdmin = 1,
+  Admin = 2,
+  Normal = 3,
 }
 
 export enum PermissionAction {

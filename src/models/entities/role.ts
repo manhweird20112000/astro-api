@@ -19,7 +19,7 @@ export class Role extends BaseEntity {
   @Column()
   name: string;
 
-  @Column({ type: 'enum', enum: Status, default: Status.temporaryLock })
+  @Column({ type: 'enum', enum: Status, default: Status.active })
   status: Status;
 
   @OneToMany(() => User, (user) => user.id)

@@ -18,13 +18,13 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "typeorm": "ts-node \"./node_modules/typeorm/cli.js\"",
+    "typeorm": "ts-node -r tsconfig-paths/register \"./node_modules/typeorm/cli.js\"",
     "migration:revert": "yarn typeorm --migration:revert",
     "migration:generate": "yarn typeorm -- migration:generate -d \"./src/database/migrations\" -n",
     "migration:create": "yarn typeorm migration:create \"./src/database/migrations/migration\"",
     "migration:run": "npm run typeorm migration:run -- -d ./src/infra/database/mysql/config --transaction none",
-    "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config -n src/infra/database/mysql/config",
-    "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed -n src/infra/database/mysql/config"
+    "seed:config": "ts-node -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js config -n src/infra/database/mysql/config",
+    "seed:run": "ts-node -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js seed -n src/infra/database/mysql/config"
   },
   "dependencies": {
     "@nestjs/bull": "^10.0.1",
@@ -80,7 +80,7 @@
     "ts-jest": "29.1.0",
     "ts-loader": "^9.2.3",
     "ts-node": "^10.0.0",
-    "tsconfig-paths": "4.2.0",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.0.0"
   },
   "jest": {
