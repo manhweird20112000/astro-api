@@ -1,8 +1,25 @@
-import { Module } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  Module,
+  NestModule,
+  RequestMethod,
+} from '@nestjs/common';
 import { AuthHttpModule } from '@/modules/admin/auth';
 import { UserHttpModule } from '@/modules/admin/user';
+import { AuthMiddleware } from '@/middlewares/auth.middleware';
+import { JwtAppModule } from '@/infra/jwt';
 
 @Module({
-  imports: [AuthHttpModule, UserHttpModule],
+  imports: [JwtAppModule, AuthHttpModule, UserHttpModule],
 })
-export class AdminModules {}
+export class AdminModules implements NestModule {
+  configure(consumer: MiddlewareConsumer): any {
+    consumer
+      .apply(AuthMiddleware)
+      .exclude({
+        method: RequestMethod.POST,
+        path: '/admin/auth/login',
+      })
+      .forRoutes('*');
+  }
+}

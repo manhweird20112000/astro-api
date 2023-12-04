@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   HttpStatus,
   Inject,
   Logger,
@@ -36,5 +37,14 @@ export class AuthController {
       .json(
         new ResponseData(data, HttpStatus.OK, i18n.t('common.auth.success')),
       );
+  }
+
+  @Get('/me')
+  async me(@Res() res: Response, @Req() req: Request) {
+    const userId = req['user_id'];
+    const data = await this.service.me(userId);
+    return res
+      .status(HttpStatus.OK)
+      .json(new ResponseData(data, HttpStatus.OK, ''));
   }
 }

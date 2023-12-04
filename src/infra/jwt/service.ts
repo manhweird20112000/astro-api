@@ -7,6 +7,7 @@ export class JwtAppService extends JwtService {
   constructor() {
     super({
       privateKey: jwtConfig.jwtSecret,
+      secretOrPrivateKey: jwtConfig.jwtSecret,
       signOptions: {
         expiresIn: jwtConfig.tokenExpiration,
       },
