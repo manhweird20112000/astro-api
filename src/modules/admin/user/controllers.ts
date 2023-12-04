@@ -57,9 +57,9 @@ export class UserController {
 
   @Get('list')
   async list(@Res() res: Response, @Query() query: ListQueryDto) {
-    console.log(query);
+    const data = await this.service.list(query);
     return res
       .status(HttpStatus.OK)
-      .json(new ResponseData([], HttpStatus.OK, ''));
+      .json(new ResponseData(data, HttpStatus.OK, ''));
   }
 }

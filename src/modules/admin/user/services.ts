@@ -10,6 +10,7 @@ import { Transactional } from 'typeorm-transactional';
 import { UpdateDto } from '@/modules/admin/user/dto/update.dto';
 import { ResponseData } from '@/utils/response-data';
 import { DeleteResult, UpdateResult } from 'typeorm';
+import {ListQueryDto} from "@/modules/admin/user/dto/list-query.dto";
 
 @Injectable()
 export class UserService {
@@ -48,5 +49,9 @@ export class UserService {
     }
 
     return this.repository.remove({ id });
+  }
+
+  async list(query: ListQueryDto) {
+    return this.repository.paginateData(query);
   }
 }
