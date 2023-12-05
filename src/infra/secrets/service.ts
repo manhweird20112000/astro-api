@@ -16,4 +16,5 @@ export class SecretsService extends ConfigService implements IAdapterSecret {
   LOG_LEVEL = this.get('LOG_LEVEL');
   REDIS_HOST = this.get('REDIS_HOST');
   REDIS_PORT = this.get('REDIS_PORT');
+  MAXSIZE_IMAGE = this.get('MAXSIZE_IMAGE');
 }

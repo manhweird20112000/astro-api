@@ -13,4 +13,6 @@ export abstract class IAdapterSecret {
   REDIS_HOST: string;
 
   LOG_LEVEL: string;
+
+  MAXSIZE_IMAGE: string;
 }
