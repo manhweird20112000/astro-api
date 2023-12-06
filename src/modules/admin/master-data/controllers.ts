@@ -1,8 +1,10 @@
 import {
   Controller,
   FileTypeValidator,
+  Get,
   HttpStatus,
   MaxFileSizeValidator,
+  Param,
   ParseFilePipe,
   Post,
   Res,
@@ -12,10 +14,11 @@ import {
 import { ResponseData } from '@/utils/response-data';
 import { Express, Response } from 'express';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { MasterDataService } from '@/modules/admin/master-data/services';
 
 @Controller('admin/master-data')
 export class MasterDataController {
-  constructor() {}
+  constructor(private readonly service: MasterDataService) {}
 
   @Post('upload')
   @UseInterceptors(FileInterceptor('file'))
@@ -34,5 +37,11 @@ export class MasterDataController {
     return res
       .status(HttpStatus.OK)
       .json(new ResponseData([], HttpStatus.OK, ''));
+  }
+
+  @Get('image/:filename')
+  async preview(@Param('filename') filename: string, @Res() res: Response) {
+    const data = await this.service.preview(filename);
+    return res.status(HttpStatus.OK).sendFile(data);
   }
 }

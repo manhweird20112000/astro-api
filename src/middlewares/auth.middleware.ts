@@ -11,9 +11,7 @@ import { Roles } from '@/constants';
 
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
-  constructor(
-    private readonly jwtService: JwtAppService,
-  ) {}
+  constructor(private readonly jwtService: JwtAppService) {}
   async use(
     req: Request,
     res: Response,
