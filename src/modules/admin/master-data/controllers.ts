@@ -33,7 +33,7 @@ export class MasterDataController {
     )
     file: Express.Multer.File,
   ) {
-    console.log(file);
+    const data = await this.service.upload(file);
     return res
       .status(HttpStatus.OK)
       .json(new ResponseData([], HttpStatus.OK, ''));
