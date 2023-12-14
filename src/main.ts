@@ -9,11 +9,13 @@ import { HttpLoggerInterceptor } from '@/utils/interceptors/http-logger.intercep
 import { HttpExceptionFilter } from '@/utils/filters/http-exception.filter';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { useContainer } from 'class-validator';
+import helmet from 'helmet';
 
 async function bootstrap() {
   initializeTransactionalContext();
   const app = await NestFactory.create(AppModule);
   const logger = new Logger();
+  app.use(helmet());
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
   app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER));
   app.useGlobalPipes(new I18nValidationPipe());
