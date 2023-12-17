@@ -18,10 +18,15 @@ import { UserService } from '@/modules/admin/user/services';
 import { SaveDto } from '@/modules/admin/user/dto/save.dto';
 import { UpdateDto } from '@/modules/admin/user/dto/update.dto';
 import { ListQueryDto } from '@/modules/admin/user/dto/list-query.dto';
+import { InjectQueue } from '@nestjs/bull';
+import { Queue } from 'bull';
 
 @Controller('admin/user')
 export class UserController {
-  constructor(private readonly service: UserService) {}
+  constructor(
+    private readonly service: UserService,
+    @InjectQueue('email') private readonly queue: Queue,
+  ) {}
 
   @Post('save')
   async save(
@@ -57,6 +62,7 @@ export class UserController {
 
   @Get('list')
   async list(@Res() res: Response, @Query() query: ListQueryDto) {
+    await this.queue.add('send-email', { email: 'to' });
     const data = await this.service.list(query);
     return res
       .status(HttpStatus.OK)
