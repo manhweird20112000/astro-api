@@ -27,6 +27,7 @@
     "seed:run": "ts-node -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js seed -n src/infra/database/mysql/config"
   },
   "dependencies": {
+    "@nestjs-modules/mailer": "^1.9.1",
     "@nestjs/bull": "^10.0.1",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^3.1.1",
@@ -52,8 +53,10 @@
     "nest-winston": "^1.9.4",
     "nestjs-i18n": "^10.3.6",
     "nestjs-typeorm-paginate": "^4.0.4",
+    "nodemailer": "^6.9.7",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
+    "pug": "^3.0.2",
     "redis": "^4.6.10",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
@@ -106,5 +109,6 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "packageManager": "yarn@4.0.2"
 }

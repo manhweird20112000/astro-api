@@ -17,4 +17,10 @@ export class SecretsService extends ConfigService implements IAdapterSecret {
   REDIS_HOST = this.get('REDIS_HOST');
   REDIS_PORT = this.get('REDIS_PORT');
   MAXSIZE_IMAGE = this.get('MAXSIZE_IMAGE');
+  MAIL_HOST = this.get('MAIL_HOST');
+  MAIL_PASSWORD = this.get('MAIL_PASSWORD');
+  MAIL_PORT = this.get('MAIL_PORT');
+  MAIL_SSL = Boolean(this.get('MAIL_SSL'));
+  MAIL_TLS = Boolean(this.get('MAIL_TLS'));
+  MAIL_USER = this.get('MAIL_USER');
 }

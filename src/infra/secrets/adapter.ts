@@ -15,4 +15,11 @@ export abstract class IAdapterSecret {
   LOG_LEVEL: string;
 
   MAXSIZE_IMAGE: string;
+
+  MAIL_HOST: string;
+  MAIL_PORT: string;
+  MAIL_SSL: boolean;
+  MAIL_TLS: boolean;
+  MAIL_USER: string;
+  MAIL_PASSWORD: string;
 }
