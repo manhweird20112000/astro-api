@@ -5,6 +5,7 @@ import { MysqlModule } from '@/infra/database/mysql';
 import { LoggerWinstonModule } from '@/infra/logger';
 import { QueueModule } from '@/infra/queue';
 import { RedisCacheModule } from '@/infra/cache/redis';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { RedisCacheModule } from '@/infra/cache/redis';
     RedisCacheModule,
     MysqlModule,
     QueueModule,
+    ScheduleModule.forRoot(),
   ],
 })
 export class InfraModule {}

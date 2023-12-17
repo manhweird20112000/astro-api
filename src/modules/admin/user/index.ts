@@ -6,6 +6,7 @@ import { RoleRepository } from '@/models/repository/role.repository';
 import { IsUniquePipe } from '@/modules/admin/user/pipes/is-unique.pipe';
 import { BullModule } from '@nestjs/bull';
 import { EmailConsumer } from '@/modules/admin/user/consumers';
+// import { UserSchedules } from '@/modules/admin/user/schedules';
 
 @Module({
   imports: [BullModule.registerQueue({ name: 'email' })],
@@ -16,6 +17,7 @@ import { EmailConsumer } from '@/modules/admin/user/consumers';
     RoleRepository,
     IsUniquePipe,
     EmailConsumer,
+    // UserSchedules,
   ],
 })
 export class UserHttpModule {}
