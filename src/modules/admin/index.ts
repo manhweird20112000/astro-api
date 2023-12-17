@@ -21,6 +21,6 @@ export class AdminModules implements NestModule {
         method: RequestMethod.POST,
         path: '/admin/auth/login',
       })
-      .forRoutes('*');
+      .forRoutes('admin');
   }
 }
