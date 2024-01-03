@@ -11,10 +11,9 @@ import { RedisService } from '@/infra/cache/redis/service';
       provide: ICacheAdapter,
       useFactory: async ({ REDIS_PORT, REDIS_HOST }: IAdapterSecret) => {
         const logger = new Logger();
-        const cacheService = new RedisService(
-          { url: `redis://${REDIS_HOST}:${REDIS_PORT}` },
-          logger,
-        );
+        const cacheService = new RedisService(logger, {
+          url: `redis://${REDIS_HOST}:${REDIS_PORT}`,
+        });
         await cacheService.connect();
         return cacheService;
       },

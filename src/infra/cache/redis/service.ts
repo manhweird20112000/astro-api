@@ -8,9 +8,9 @@ import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 export class RedisService implements Partial<ICacheAdapter<RedisClientType>> {
   client: RedisClientType;
   constructor(
-    private readonly options: RedisClientOptions,
     @Inject(WINSTON_MODULE_NEST_PROVIDER)
     private readonly logger: Logger,
+    private readonly options: RedisClientOptions,
   ) {
     this.client = createClient(this.options) as RedisClientType;
   }

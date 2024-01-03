@@ -4,7 +4,7 @@ import { PugAdapter } from '@nestjs-modules/mailer/dist/adapters/pug.adapter';
 import { IAdapterSecret } from '@/infra/secrets/adapter';
 import { SecretsModule } from '@/infra/secrets';
 import { MailService } from '@/infra/mail/service';
-import * as path from "path";
+import * as path from 'path';
 
 @Module({
   imports: [

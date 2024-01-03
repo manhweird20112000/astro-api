@@ -6,8 +6,8 @@ import { jwtConfig } from '@/infra/jwt/config';
 export class JwtAppService extends JwtService {
   constructor() {
     super({
+      secret: jwtConfig.jwtSecret,
       privateKey: jwtConfig.jwtSecret,
-      secretOrPrivateKey: jwtConfig.jwtSecret,
       signOptions: {
         expiresIn: jwtConfig.tokenExpiration,
       },

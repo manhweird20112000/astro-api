@@ -17,7 +17,7 @@ import { JwtAppService } from '@/infra/jwt/service';
       useFactory: ({ JWT_SECRET, TOKEN_EXPIRATION }: IAdapterSecret) => {
         return {
           secret: JWT_SECRET,
-          secretOrPrivateKey: JWT_SECRET,
+          privateKey: JWT_SECRET,
           signOptions: {
             expiresIn: TOKEN_EXPIRATION,
           },
