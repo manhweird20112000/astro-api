@@ -4,6 +4,11 @@ export abstract class IAdapterSecret {
 
   MYSQL_URI: string;
 
+  MONGO_URI: string;
+  MONGO_USER: string;
+  MONGO_PASSWORD: string;
+  MONGO_NAME: string;
+
   JWT_SECRET: string;
 
   TOKEN_EXPIRATION: string;

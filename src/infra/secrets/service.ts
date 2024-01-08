@@ -11,6 +11,11 @@ export class SecretsService extends ConfigService implements IAdapterSecret {
     'DB_PASSWORD',
   )}@${this.get('DB_HOST')}:${this.get('DB_PORT')}/${this.get('DB_NAME')}`;
 
+  MONGO_URI = `mongodb://${this.get('MONGO_HOST')}:${this.get('MONGO_PORT')}/`;
+  MONGO_NAME = this.get('MONGO_NAME');
+  MONGO_PASSWORD = this.get('MONGO_PASSWORD');
+  MONGO_USER = this.get('MONGO_USER');
+
   JWT_SECRET = this.get('JWT_SECRET');
   TOKEN_EXPIRATION = this.get('TOKEN_EXPIRATION');
   LOG_LEVEL = this.get('LOG_LEVEL');

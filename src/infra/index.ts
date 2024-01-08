@@ -6,6 +6,7 @@ import { LoggerWinstonModule } from '@/infra/logger';
 import { QueueModule } from '@/infra/queue';
 import { RedisCacheModule } from '@/infra/cache/redis';
 import { ScheduleModule } from '@nestjs/schedule';
+import { MongoDBModule } from '@/infra/database/mongo';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { ScheduleModule } from '@nestjs/schedule';
     TranslateModule,
     RedisCacheModule,
     MysqlModule,
+    MongoDBModule,
     QueueModule,
     ScheduleModule.forRoot(),
   ],
