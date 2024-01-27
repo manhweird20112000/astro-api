@@ -5,6 +5,7 @@ import { AdminModules } from '@/modules/admin';
 import { EntitiesModule } from '@/models/module';
 import { MulterUtilModule } from '@/utils/uploads';
 import { ThrottlerModule } from '@nestjs/throttler';
+import { UserModules } from '@/modules/user';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { ThrottlerModule } from '@nestjs/throttler';
     InfraModule,
     EntitiesModule,
     AdminModules,
+    UserModules,
   ],
   controllers: [AppController],
   providers: [],

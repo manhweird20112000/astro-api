@@ -1,4 +1,5 @@
 export abstract class IAdapterSecret {
+  APP_DOMAIN: string;
   APP_NAME: string;
   APP_PORT: string;
 
@@ -27,4 +28,7 @@ export abstract class IAdapterSecret {
   MAIL_TLS: boolean;
   MAIL_USER: string;
   MAIL_PASSWORD: string;
+
+  GOOGLE_AUTH_CLIENT_ID: string;
+  GOOGLE_AUTH_CLIENT_SECRET: string;
 }
