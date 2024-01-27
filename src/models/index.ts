@@ -1,12 +1,13 @@
 import { User } from '@/models/entities/user';
 import { Role } from '@/models/entities/role';
-import { Module } from '@/models/entities/module';
-import { Permission } from '@/models/entities/permission';
-import { UserModulePermission } from '@/models/entities/user-module-permission';
 import { Room, RoomSchema } from '@/models/schema/room';
 import { ModelDefinition } from '@nestjs/mongoose/dist/interfaces';
+import { Equip } from '@/models/entities/equip';
+import { Category } from '@/models/entities/category';
+import { Mission } from '@/models/entities/mission';
+import { UserMission } from '@/models/entities/user_mission';
 
-export const entities = [User, Role, Module, Permission, UserModulePermission];
+export const entities = [User, Role, Equip, Category, Mission, UserMission];
 
 export const schemas: ModelDefinition[] = [
   {

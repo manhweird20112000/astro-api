@@ -2,32 +2,27 @@ import {
   BaseEntity,
   Column,
   CreateDateColumn,
-  DeleteDateColumn,
-  Entity,
-  ManyToMany,
+  DeleteDateColumn, Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
-  JoinTable,
 } from 'typeorm';
 import { Status } from '@/constants';
-import { Permission } from './permission';
+import { Mission } from '@/models/entities/mission';
 
-@Entity('module')
-export class Module extends BaseEntity {
+@Entity('category')
+export class Category extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   name: string;
 
-  @Column({ type: 'enum', enum: Status, default: Status.active })
+  @Column({ enum: Status, default: Status.active, type: 'enum' })
   status: Status;
 
-  @ManyToMany(() => Permission, { cascade: true })
-  @JoinTable({
-    name: 'module_permission',
-  })
-  permissions: Permission[];
+  @OneToMany(() => Mission, (mission) => mission.id)
+  missions: Mission[];
 
   @CreateDateColumn()
   created_at: Date;

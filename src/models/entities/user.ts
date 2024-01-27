@@ -4,14 +4,11 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  JoinTable,
-  ManyToMany,
   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { Role } from './role';
-import { Permission } from './permission';
 import { Gender, Roles, Status } from '@/constants';
 
 @Entity('user')
@@ -20,12 +17,12 @@ export class User extends BaseEntity {
   id: number;
 
   @Column({ type: 'varchar', length: 255 })
-  full_name: string;
+  fullname: string;
 
-  @Column({ nullable: true })
+  @Column()
   username: string;
 
-  @Column({ type: 'enum', enum: Status, default: Status.approval })
+  @Column({ type: 'enum', enum: Status, default: Status.inactive })
   status: Status;
 
   @Column({ type: 'enum', enum: Gender, default: Gender.other })
@@ -33,6 +30,15 @@ export class User extends BaseEntity {
 
   @Column({ type: 'datetime', nullable: true })
   dob: Date;
+
+  @Column({ type: 'float', default: 0 })
+  height: number;
+
+  @Column({ type: 'float', default: 0 })
+  weight: number;
+
+  @Column({ nullable: true })
+  avatar: string;
 
   @Column({ type: 'varchar', length: 255, unique: true })
   email: string;
@@ -45,12 +51,6 @@ export class User extends BaseEntity {
 
   @ManyToOne(() => Role, (role) => role.id)
   role: Roles;
-
-  @ManyToMany(() => Permission, { cascade: true })
-  @JoinTable({
-    name: 'user_permission',
-  })
-  permission: Permission[];
 
   @CreateDateColumn()
   created_at: Date;
