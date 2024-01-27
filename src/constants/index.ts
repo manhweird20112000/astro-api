@@ -5,8 +5,6 @@ export enum ValidateType {
 export enum Status {
   inactive,
   active,
-  approval,
-  temporaryLock,
   block,
 }
 
@@ -14,13 +12,6 @@ export enum Roles {
   SuperAdmin = 1,
   Admin = 2,
   Normal = 3,
-}
-
-export enum PermissionAction {
-  view,
-  created,
-  update,
-  delete,
 }
 
 export enum Gender {
@@ -32,4 +23,16 @@ export enum Gender {
 export enum ESort {
   asc = 'asc',
   desc = 'desc',
+}
+
+export enum ELevel {
+  easy,
+  medium,
+  hard,
+  exceptional,
+}
+
+export enum EBookmark {
+  doNotSave,
+  save,
 }

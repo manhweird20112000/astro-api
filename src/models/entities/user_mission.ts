@@ -7,19 +7,15 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { PermissionAction } from '@/constants';
+import { EBookmark } from '@/constants';
 
-@Entity('permission')
-export class Permission extends BaseEntity {
+@Entity('user_mission')
+export class UserMission extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({
-    type: 'enum',
-    enum: PermissionAction,
-    default: PermissionAction.view,
-  })
-  action: PermissionAction;
+  @Column({ type: 'enum', enum: EBookmark, default: EBookmark.doNotSave })
+  bookmark: EBookmark;
 
   @CreateDateColumn()
   created_at: Date;
