@@ -9,7 +9,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Role } from './role';
-import { Gender, Roles, Status } from '@/constants';
+import { EAuthType, ESocialType, Gender, Roles, Status } from '@/constants';
 
 @Entity('user')
 export class User extends BaseEntity {
@@ -25,7 +25,7 @@ export class User extends BaseEntity {
   @Column({ type: 'enum', enum: Status, default: Status.inactive })
   status: Status;
 
-  @Column({ type: 'enum', enum: Gender, default: Gender.other })
+  @Column({ type: 'enum', enum: Gender, nullable: true })
   gender: Gender;
 
   @Column({ type: 'datetime', nullable: true })
@@ -46,8 +46,14 @@ export class User extends BaseEntity {
   @Column({ nullable: true })
   phone: string;
 
-  @Column({ type: 'varchar', length: 255 })
+  @Column({ type: 'enum', enum: EAuthType, default: EAuthType.normal })
+  is_oauth: EAuthType;
+
+  @Column({ type: 'varchar', length: 255, nullable: true })
   password: string;
+
+  @Column({ type: 'enum', enum: ESocialType, default: ESocialType.normal })
+  social_type: ESocialType;
 
   @ManyToOne(() => Role, (role) => role.id)
   role: Roles;

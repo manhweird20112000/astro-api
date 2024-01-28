@@ -28,4 +28,7 @@ export class SecretsService extends ConfigService implements IAdapterSecret {
   MAIL_SSL = Boolean(this.get('MAIL_SSL'));
   MAIL_TLS = Boolean(this.get('MAIL_TLS'));
   MAIL_USER = this.get('MAIL_USER');
+  GOOGLE_AUTH_CLIENT_ID = this.get('GOOGLE_AUTH_CLIENT_ID');
+  GOOGLE_AUTH_CLIENT_SECRET = this.get('GOOGLE_AUTH_CLIENT_SECRET');
+  APP_DOMAIN = this.get('APP_DOMAIN');
 }

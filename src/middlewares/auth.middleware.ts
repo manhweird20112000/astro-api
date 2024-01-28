@@ -4,7 +4,7 @@ import {
   NestMiddleware,
   UnauthorizedException,
 } from '@nestjs/common';
-import { JwtAppService } from '@/infra/jwt/service';
+import { JwtAppService } from '@/infra/jwt/strategies/service';
 import { Request, Response } from 'express';
 import { ResponseData } from '@/utils/response-data';
 import { Roles } from '@/constants';

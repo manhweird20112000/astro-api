@@ -36,3 +36,14 @@ export enum EBookmark {
   doNotSave,
   save,
 }
+
+export enum EAuthType {
+  normal,
+  oauth,
+}
+
+export enum ESocialType {
+  normal = 'normal',
+  facebook = 'facebook',
+  google = 'google',
+}

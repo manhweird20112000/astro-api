@@ -4,7 +4,7 @@ import { IAdapterSecret } from '@/infra/secrets/adapter';
 import { JwtModule, JwtService } from '@nestjs/jwt';
 import { SecretsModule } from '@/infra/secrets';
 import { JwtStrategy } from '@/infra/jwt/strategy';
-import { JwtAppService } from '@/infra/jwt/service';
+import { JwtAppService } from '@/infra/jwt/strategies/service';
 
 @Module({
   imports: [

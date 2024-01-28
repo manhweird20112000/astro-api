@@ -5,7 +5,7 @@ import {
   NotFoundException,
   UnauthorizedException,
 } from '@nestjs/common';
-import { JwtAppService } from '@/infra/jwt/service';
+import { JwtAppService } from '@/infra/jwt/strategies/service';
 import * as bcrypt from 'bcrypt';
 import { ResponseData } from '@/utils/response-data';
 import { User } from '@/models/entities/user';
